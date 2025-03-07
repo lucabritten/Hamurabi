@@ -1,9 +1,11 @@
 public class City {
 
-    public static void main(String[] args){
+    private String name;
+    private int bushels = 2800;
+    private int acres = 1000;
+    private int inhabitants = 100;
+    private int food;
+    private int fields;
+    private int cityAge;
 
-        System.out.println("TEST");
-
-
-    }
 }
