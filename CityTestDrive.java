@@ -4,8 +4,10 @@ public class CityTestDrive {
     public static void main(String[] args){
 
         City testCity = new City();
+        System.out.println("Test-process of buy-method:");
         testCity.buy(10);
         test(testCity.getAcres(), 1010);
+        test(testCity.getBushels(), 900);
 
     }
 

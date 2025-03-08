@@ -9,8 +9,8 @@ public class City {
     private int cityAge;
 
     public boolean buy(int amount){
-        if(amount*2 < bushels){
-            bushels -= amount*2;
+        if(amount*10 < bushels){
+            bushels -= amount*10;
             acres += amount;
             return true;
         }
@@ -19,9 +19,9 @@ public class City {
 
     public boolean sell(int amount){
 
-        if(amount < acres){
+        if(amount < acres && amount >= 0){
             acres -= amount;
-            bushels += amount*2;
+            bushels += amount*7;
             return true;
         }
         return false;
@@ -38,6 +38,10 @@ public class City {
 
     public int getAcres(){
         return acres;
+    }
+
+    public int getBushels(){
+        return bushels;
     }
 
 }
