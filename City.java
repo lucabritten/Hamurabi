@@ -7,6 +7,7 @@ public class City {
     private int food;
     private int plantedFields;
     private int cityAge = 1;
+    private static final int price = 10;
 
     public boolean buy(int amount){
         if(amount*10 < bushels){
@@ -66,6 +67,10 @@ public class City {
     public int getPlantedFields(){
         return plantedFields;
 
+    }
+
+    public int getPrice(){
+        return price;
     }
 
     public void setInhabitants(int number){
