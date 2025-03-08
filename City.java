@@ -66,6 +66,7 @@ public class City {
         if(number >= 0){
             inhabitants = number;
         }
+
     }
 
 }

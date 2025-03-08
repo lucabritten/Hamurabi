@@ -58,6 +58,7 @@ public class CityTestDrive {
     }
 
     public static void test(int expected, int actual){
+
         counter++;
         if(expected == actual){
             System.out.format("[%d] ✅ PASSED: Expected: %s ... Actual: %s\n",counter, expected, actual);
