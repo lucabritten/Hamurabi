@@ -5,7 +5,7 @@ public class City {
     private int acres = 1000;
     private int inhabitants = 100;
     private int food;
-    private int fields;
+    private int plantedFields;
     private int cityAge;
 
     public boolean buy(int amount){
@@ -21,19 +21,29 @@ public class City {
 
         if(amount < acres && amount >= 0){
             acres -= amount;
-            bushels += amount*7;
+            bushels += amount*10;
             return true;
         }
         return false;
     }
 
-    public void feed(){
-
+    public boolean feed(int amount){
+        if(amount < bushels){
+            bushels -= amount;
+            food = amount;
+            return true;
+        }
+        return false;
     }
 
-    public void plant(){
-
-
+    public boolean plant(int amount){
+        plantedFields = 0;
+        if(amount <= inhabitants*10 && amount <= bushels) {
+            plantedFields = amount;
+            bushels -= amount;
+            return true;
+        }
+        return false;
     }
 
     public int getAcres(){
@@ -42,6 +52,20 @@ public class City {
 
     public int getBushels(){
         return bushels;
+    }
+
+    public int getFood(){
+        return food;
+    }
+
+    public int getPlantedFields(){
+        return plantedFields;
+    }
+
+    public void setInhabitants(int number){
+        if(number >= 0){
+            inhabitants = number;
+        }
     }
 
 }
