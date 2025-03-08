@@ -49,7 +49,7 @@ public class City {
 
     @Override
     public String toString(){
-        return "In the year " + cityAge + " after its foundation, " + inhabitants + " inhabitants live in the town of Codeopolis. The town owns " + bushels + " bushels of grain and " + acres + " acres of land.";
+        return "City Status: In the year " + cityAge + " after its foundation, " + inhabitants + " inhabitants live in the town of Codeopolis. The town owns " + bushels + " bushels of grain and " + acres + " acres of land.";
     }
 
     public int getAcres(){
@@ -71,6 +71,10 @@ public class City {
 
     public int getPrice(){
         return price;
+    }
+
+    public String getStatus(){
+        return acres + " acres of land, " + bushels +" bushels of grain, " + inhabitants + "  residents.";
     }
 
     public void setInhabitants(int number){

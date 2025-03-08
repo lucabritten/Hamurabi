@@ -55,7 +55,7 @@ public class CityTestDrive {
 
         System.out.println("\n Test-process of toString-method:");
         testCity = new City();
-        test("In the year 1 after its foundation, 100 inhabitants live in the town of Codeopolis. The town owns 2800 bushels of grain and 1000 acres of land.",testCity.toString());
+        test("City Status: In the year 1 after its foundation, 100 inhabitants live in the town of Codeopolis. The town owns 2800 bushels of grain and 1000 acres of land.",testCity.toString());
 
 
 
