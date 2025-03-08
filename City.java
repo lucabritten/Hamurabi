@@ -6,7 +6,7 @@ public class City {
     private int inhabitants = 100;
     private int food;
     private int plantedFields;
-    private int cityAge;
+    private int cityAge = 1;
 
     public boolean buy(int amount){
         if(amount*10 < bushels){
@@ -46,6 +46,11 @@ public class City {
         return false;
     }
 
+    @Override
+    public String toString(){
+        return "In the year " + cityAge + " after its foundation, " + inhabitants + " inhabitants live in the town of Codeopolis. The town owns " + bushels + " bushels of grain and " + acres + " acres of land.";
+    }
+
     public int getAcres(){
         return acres;
     }
@@ -60,6 +65,7 @@ public class City {
 
     public int getPlantedFields(){
         return plantedFields;
+
     }
 
     public void setInhabitants(int number){

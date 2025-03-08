@@ -53,6 +53,11 @@ public class CityTestDrive {
         test(1700, testCity.getPlantedFields());
         test(0, testCity.getBushels());
 
+        System.out.println("\n Test-process of toString-method:");
+        testCity = new City();
+        test("In the year 1 after its foundation, 100 inhabitants live in the town of Codeopolis. The town owns 2800 bushels of grain and 1000 acres of land.",testCity.toString());
+
+
 
 
     }
@@ -71,6 +76,17 @@ public class CityTestDrive {
     public static void test(boolean expected, boolean actual){
         counter++;
         if(expected == actual){
+            System.out.format("[%d] ✅ PASSED: Expected: %s ... Actual: %s\n",counter, expected, actual);
+        }
+        else{
+            System.out.format("[%d] ❌ FAILED: Expected: %s ... Actual: %s\n",counter, expected, actual);
+
+        }
+    }
+
+    public static void test(String expected, String actual){
+        counter++;
+        if(expected.equals(actual)){
             System.out.format("[%d] ✅ PASSED: Expected: %s ... Actual: %s\n",counter, expected, actual);
         }
         else{
