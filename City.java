@@ -11,6 +11,8 @@ public class City {
     private int cityAge = 1;
     public static final int PRICE = 10;
     private static final int REQUIRED_FOOD_PER_PERSON = 20;
+    private static final int HARVEST_FACTOR = 6;
+    private static final double MAX_RAT_LOSS = 0.25;
     private Random random = new Random();
 
     @Override
@@ -66,7 +68,7 @@ public class City {
     }
 
     public boolean feed(int amount){
-        if(amount < bushels){
+        if(amount <= bushels){
             bushels -= amount;
             food = amount;
             return true;
@@ -105,12 +107,12 @@ public class City {
         System.out.format("%d people came to the city\n", newPeople);
 
         // Ernterate (Ernte vervielfachen, aber nicht mehr als 6x)
-        int harvestedBushels = (int) (random.nextDouble() * 0.9 + 0.1) * 6 * bushels;
+        int harvestedBushels = (int) (random.nextDouble() * 0.9 + 0.1) * HARVEST_FACTOR * bushels;
         bushels += harvestedBushels;
         System.out.format("%d Bushels are now in stock\n", bushels);
 
         // Rattenplage (bis zu 25% der Vorräte)
-        int eatenBushels = (int) (random.nextDouble() * 0.25 * bushels);
+        int eatenBushels = (int) (random.nextDouble() * MAX_RAT_LOSS * bushels);
         bushels -= eatenBushels;
         System.out.format("%d bushels were eaten by rats...\n", eatenBushels);
 
