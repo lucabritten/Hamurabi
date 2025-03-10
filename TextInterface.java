@@ -73,7 +73,7 @@ public class TextInterface {
     public void buyMenu(){
         System.out.println("----- BUY MENU ------");
         System.out.format("City Status: %s\n", city.getStatus());
-        System.out.format("Current price er acres: %d\n", city.getPrice());
+        System.out.format("Current price er acres: %d\n", city.PRICE);
         System.out.println("How many acres would you like to buy?");
         System.out.print("> ");
         int input = getUserInput();
@@ -89,7 +89,7 @@ public class TextInterface {
     public void sellMenu(){
         System.out.println("----- SELL MENU ------");
         System.out.format("City Status: %s\n", city.getStatus());
-        System.out.format("Current price er acres: %d\n", city.getPrice());
+        System.out.format("Current price er acres: %d\n", city.PRICE);
         System.out.println("How many acres would you like to sell?");
         System.out.print("> ");
         int input = getUserInput();
@@ -126,6 +126,7 @@ public class TextInterface {
     public void statusMenu(){
         System.out.println("----- STATUS MENU ------");
         System.out.format("City Status: %s\n", city.getStatus());
+        city.runTurn();
     }
 
 
