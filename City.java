@@ -10,9 +10,9 @@ public class City {
     private int plantedFields;
     private int cityAge = 1;
     public static final int PRICE = 10;
-    private static final int REQUIRED_FOOD_PER_PERSON = 20;
-    private static final int HARVEST_FACTOR = 6;
-    private static final double MAX_RAT_LOSS = 0.25;
+    public static final int REQUIRED_FOOD_PER_PERSON = 20;
+    public static final int HARVEST_FACTOR = 6;
+    public static final double MAX_RAT_LOSS = 0.25;
     private Random random = new Random();
 
     @Override
@@ -38,7 +38,7 @@ public class City {
     }
 
     public String getStatus(){
-        return acres + " acres of land, " + bushels +" bushels of grain, " + inhabitants + "  residents.";
+        return "> Acres: "+ acres + " ,  > Bushels: " + bushels +" , > Inhabitants: " + inhabitants;
     }
 
     public void setInhabitants(int number){
@@ -86,7 +86,7 @@ public class City {
         return false;
     }
 
-    public void runTurn() {
+    public boolean runTurn() {
         int inhabitantsBeforeDeath = inhabitants;
         int deathPeople = 0;
 
@@ -117,7 +117,17 @@ public class City {
         System.out.format("%d bushels were eaten by rats...\n", eatenBushels);
 
         // Jahr erhöhen
-        cityAge++;
+        System.out.format("Round %d of 10.\n", ++cityAge);
+        //Bedingungen Sieg/Niederlage prüfen
+        if(inhabitants <= 0 || deathPeople > inhabitantsBeforeDeath / 2){
+            System.out.println("You lost!");
+            return false;
+        }
+        else if(cityAge == 10){
+            System.out.println("Congrats, you made it!");
+            return false;
+        }
+        return true;
     }
 
 }

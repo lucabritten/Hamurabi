@@ -3,8 +3,13 @@ import java.util.Scanner;
 
 public class TextInterface {
 
-    private City city;
+    //private City city;
+    private Game game;
     private Scanner scanner = new Scanner(System.in);
+
+    public TextInterface(Game game){
+        this.game = game;
+    }
 
     public void showMainMenu(){
         boolean running = true;
@@ -17,7 +22,7 @@ public class TextInterface {
             int input = getMenuInput(1,2);
             switch (input){
                 case 1:
-                    city = new City();
+                    game.start();
                     showGameMenu();
                     break;
                 case 2:
@@ -41,7 +46,7 @@ public class TextInterface {
             System.out.println("2) SELL");
             System.out.println("3) FEED");
             System.out.println("4) PLANT");
-            System.out.println("5) SHOW STATUS");
+            System.out.println("5) SHOW STATUS / NEXT YEAR");
             System.out.println("6) QUIT GAME");
             System.out.println("Please select an action: ");
 
@@ -60,10 +65,10 @@ public class TextInterface {
                     plantMenu();
                     break;
                 case 5:
-                    statusMenu();
+                    running = statusMenu();
                     break;
                 case 6:
-                    city = null;
+                    game = null;
                     running = false;
                     break;
             }
@@ -72,15 +77,15 @@ public class TextInterface {
 
     public void buyMenu(){
         System.out.println("----- BUY MENU ------");
-        System.out.format("City Status: %s\n", city.getStatus());
-        System.out.format("Current price er acres: %d\n", city.PRICE);
+        System.out.format("City Status: %s\n", game.showStatus());
+        System.out.format("Current price er acres: %d\n", game.getPRICE());
         System.out.println("How many acres would you like to buy?");
         System.out.print("> ");
         int input = getUserInput();
-        if(!city.buy(input)){
+        if(!game.buyLand(input)){
             System.out.println("Arrr, your input was not in range.");
         }
-        System.out.format("New Status: %s\n", city.getStatus());
+        System.out.format("New Status: %s\n", game.showStatus());
 
 
 
@@ -88,45 +93,46 @@ public class TextInterface {
 
     public void sellMenu(){
         System.out.println("----- SELL MENU ------");
-        System.out.format("City Status: %s\n", city.getStatus());
-        System.out.format("Current price er acres: %d\n", city.PRICE);
+        System.out.format("City Status: %s\n", game.showStatus());
+        System.out.format("Current price per acres: %d\n", game.getPRICE());
         System.out.println("How many acres would you like to sell?");
         System.out.print("> ");
         int input = getUserInput();
-        if(!city.sell(input)){
+        if(!game.sellLand(input)){
             System.out.println("Arrr, your input was not in range.");
         }
-        System.out.format("New Status: %s\n", city.getStatus());
+        System.out.format("New Status: %s\n", game.showStatus());
     }
 
     public void feedMenu(){
         System.out.println("----- FEED MENU ------");
-        System.out.format("City Status: %s\n", city.getStatus());
+        System.out.format("City Status: %s\n", game.showStatus());
         System.out.println("How many bushels would you like to feed to your residents");
+        System.out.println("Required: " + game.getREQUIRED_FOOD_PER_PERSON() + " per person");
         System.out.print("> ");
         int input = getUserInput();
-        if(!city.feed(input)){
+        if(!game.feedPeople(input)){
             System.out.println("Arrr, your input was not in range.");
         }
-        System.out.format("New Status: %s\n", city.getStatus());
+        System.out.format("New Status: %s\n", game.showStatus());
     }
 
     public void plantMenu(){
         System.out.println("----- PLANT MENU ------");
-        System.out.format("City Status: %s\n", city.getStatus());
+        System.out.format("City Status: %s\n", game.showStatus());
         System.out.println("How many arces of land would you like to plant with seed?");
         System.out.print("> ");
         int input = getUserInput();
-        if(!city.plant(input)){
+        if(!game.plantBushels(input)){
             System.out.println("Arrr, your input was not in range.");
         }
-        System.out.format("New Status: %s\n", city.getStatus());
+        System.out.format("New Status: %s\n", game.showStatus());
     }
 
-    public void statusMenu(){
+    public boolean statusMenu(){
         System.out.println("----- STATUS MENU ------");
-        System.out.format("City Status: %s\n", city.getStatus());
-        city.runTurn();
+        System.out.format("City Status: %s\n", game.showStatus());
+        return game.nextTurn();
     }
 
 
