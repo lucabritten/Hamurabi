@@ -118,6 +118,7 @@ public class City {
 
         // Jahr erhöhen
         System.out.format("Round %d of 10.\n", ++cityAge);
+
         //Bedingungen Sieg/Niederlage prüfen
         if(inhabitants <= 0 || deathPeople > inhabitantsBeforeDeath / 2){
             System.out.println("You lost!");

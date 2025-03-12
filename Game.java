@@ -8,6 +8,25 @@ public class Game {
     }
 
     public void start(){
+        do {
+            executeTurn();
+        }
+        while(gameCity.runTurn());
+    }
+
+    public void executeTurn(){
+        System.out.println(gameCity);
+        int acresToBuy = textInterface.getAcresToBuy();
+        gameCity.buy(acresToBuy);
+
+        int acresToSell = textInterface.getAcresToSell();
+        gameCity.sell(acresToSell);
+
+        int bushelsToFeed = textInterface.getBushelsToFeed();
+        gameCity.feed(bushelsToFeed);
+
+        int bushelsToPlant = textInterface.getBushelsToPlant();
+        gameCity.plant(bushelsToPlant);
 
     }
 
@@ -19,28 +38,7 @@ public class Game {
         return City.REQUIRED_FOOD_PER_PERSON;
     }
 
-    public boolean buyLand(int amount){
-        return gameCity.buy(amount);
-    }
-
-    public boolean sellLand(int amount){
-        return gameCity.sell(amount);
-    }
-
-    public boolean feedPeople(int amount){
-        return gameCity.feed(amount);
-    }
-
-    public boolean plantBushels(int amount){
-        return gameCity.plant(amount);
-    }
-
     public String showStatus(){
         return gameCity.getStatus();
     }
-
-    public boolean nextTurn(){
-        return gameCity.runTurn();
-    }
-
 }
