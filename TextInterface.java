@@ -34,6 +34,25 @@ public class TextInterface {
         }
     }
 
+    public DifficultyLevel getDifficultyLevel(){
+        System.out.println("----- DIFFICULTY -----");
+        System.out.println("1) EASY");
+        System.out.println("2) MEDIUM");
+        System.out.println("3) HARD");
+
+        int input = getUserInput(1,3);
+        switch(input){
+            case 1:
+                return DifficultyLevel.EASY;
+            case 2:
+                return DifficultyLevel.MEDIUM;
+            case 3:
+                return DifficultyLevel.HARD;
+        }
+        throw new InputMismatchException("Invalid input.");
+
+    }
+
     public void displayCityStatus(City city){
         System.out.format("Current statistics: %s", city);
     }

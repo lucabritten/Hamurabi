@@ -5,7 +5,7 @@ public class CityTestDrive {
 
     public static void main(String[] args){
 
-        City testCity = new City();
+        City testCity = new City(new GameConfig(DifficultyLevel.EASY));
         System.out.println("Test-process of buy-method:");
         testCity.buy(10);
         test(1010, testCity.getAcres());
@@ -16,7 +16,7 @@ public class CityTestDrive {
         test(2700, testCity.getBushels());
 
         System.out.println("\nTest-process of sell-method:");
-        testCity = new City();
+        testCity = new City(new GameConfig(DifficultyLevel.EASY));
         testCity.sell(100);
         test(900, testCity.getAcres());
         test(3800, testCity.getBushels());
@@ -26,7 +26,7 @@ public class CityTestDrive {
         test(3800, testCity.getBushels());
 
         System.out.println("\nTest-process of feed-method:");
-        testCity = new City();
+        testCity = new City(new GameConfig(DifficultyLevel.EASY));
         testCity.feed(500);
         test(2300, testCity.getBushels());
         test(500, testCity.getFood());
@@ -35,7 +35,8 @@ public class CityTestDrive {
         test(2300, testCity.getBushels());
 
         System.out.println("\nTest-process of plant-method:");
-        testCity = new City();
+        testCity = new City(new GameConfig(DifficultyLevel.EASY));
+        System.out.println(testCity.getStatus());
         test(true, testCity.plant(100));
         test(100, testCity.getPlantedFields());
         test(2700, testCity.getBushels());
@@ -54,8 +55,11 @@ public class CityTestDrive {
         test(0, testCity.getBushels());
 
         System.out.println("\n Test-process of toString-method:");
-        testCity = new City();
+        testCity = new City(new GameConfig(DifficultyLevel.EASY));
         test("City Status: In the year 1 after its foundation, 100 inhabitants live in the town of Codeopolis. The town owns 2800 bushels of grain and 1000 acres of land.",testCity.toString());
+
+        testCity = new City(new GameConfig(DifficultyLevel.HARD));
+        test("> Acres: 800,  > Bushels: 2800,  > Inhabitants: 100", testCity.getStatus());
 
 
 
