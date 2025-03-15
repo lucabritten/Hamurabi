@@ -1,3 +1,4 @@
+package domainmodel;
 
 public class CityTestDrive {
 
@@ -56,7 +57,7 @@ public class CityTestDrive {
 
         System.out.println("\n Test-process of toString-method:");
         testCity = new City(new GameConfig(DifficultyLevel.EASY));
-        test("City Status: In the year 1 after its foundation, 100 inhabitants live in the town of Codeopolis. The town owns 2800 bushels of grain and 1000 acres of land.",testCity.toString());
+        test("domainmodel.City Status: In the year 1 after its foundation, 100 inhabitants live in the town of presentation.Codeopolis. The town owns 2800 bushels of grain and 1000 acres of land.",testCity.toString());
 
         testCity = new City(new GameConfig(DifficultyLevel.HARD));
         test("> Acres: 800,  > Bushels: 2800,  > Inhabitants: 100", testCity.getStatus());

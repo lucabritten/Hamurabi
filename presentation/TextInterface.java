@@ -1,12 +1,19 @@
+package presentation;
+
+import domainmodel.City;
+import domainmodel.Game;
+import domainmodel.DifficultyLevel;
+import domainmodel.UserInterface;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class TextInterface {
+public class TextInterface implements UserInterface{
 
     private Game game;
     private Scanner scanner = new Scanner(System.in);
 
-    public TextInterface(Game game){
+    public void setGame(Game game){
         this.game = game;
     }
 
@@ -14,7 +21,7 @@ public class TextInterface {
         boolean running = true;
         while(running) {
             System.out.println("----- MAIN MENU -----");
-            System.out.println("1) New Game");
+            System.out.println("1) New domainmodel.Game");
             System.out.println("2) Quit");
             System.out.println("Please select an option: ");
 
@@ -88,7 +95,7 @@ public class TextInterface {
         return getUserInput();
     }
 
-    public int getUserInput(int lowerBorder, int upperBorder) {
+    private int getUserInput(int lowerBorder, int upperBorder) {
         while (true) {
             try {
                 int num = scanner.nextInt();
@@ -104,7 +111,7 @@ public class TextInterface {
         }
     }
 
-    public int getUserInput(){
+    private int getUserInput(){
         while(true) {
             try {
                 return scanner.nextInt();
