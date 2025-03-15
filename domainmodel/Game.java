@@ -1,15 +1,16 @@
+package domainmodel;
 public class Game {
 
     private City gameCity;
-    private TextInterface textInterface;
+    private UserInterface userInterface;
     private GameConfig gameConfig;
 
-    public Game(){
-        textInterface = new TextInterface(this);
+    public Game(UserInterface userInterface){
+        this.userInterface = userInterface;
     }
 
     public void start(){
-        gameConfig = new GameConfig(textInterface.getDifficultyLevel());
+        gameConfig = new GameConfig(userInterface.getDifficultyLevel());
         gameCity = new City(gameConfig);
         do {
             executeTurn();
@@ -19,16 +20,16 @@ public class Game {
 
     public void executeTurn(){
         System.out.println(gameCity);
-        int acresToBuy = textInterface.getAcresToBuy();
+        int acresToBuy = userInterface.getAcresToBuy();
         gameCity.buy(acresToBuy);
 
-        int acresToSell = textInterface.getAcresToSell();
+        int acresToSell = userInterface.getAcresToSell();
         gameCity.sell(acresToSell);
 
-        int bushelsToFeed = textInterface.getBushelsToFeed();
+        int bushelsToFeed = userInterface.getBushelsToFeed();
         gameCity.feed(bushelsToFeed);
 
-        int bushelsToPlant = textInterface.getBushelsToPlant();
+        int bushelsToPlant = userInterface.getBushelsToPlant();
         gameCity.plant(bushelsToPlant);
 
     }

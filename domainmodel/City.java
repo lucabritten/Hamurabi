@@ -1,3 +1,5 @@
+package domainmodel;
+
 import java.util.Random;
 
 public class City {
@@ -27,7 +29,7 @@ public class City {
     }
     @Override
     public String toString(){
-        return "City Status: In the year " + cityAge + " after its foundation, " + inhabitants + " inhabitants live in the town of Codeopolis. The town owns " + bushels + " bushels of grain and " + acres + " acres of land.";
+        return "domainmodel.City Status: In the year " + cityAge + " after its foundation, " + inhabitants + " inhabitants live in the town of presentation.Codeopolis. The town owns " + bushels + " bushels of grain and " + acres + " acres of land.";
     }
 
     public int getAcres(){

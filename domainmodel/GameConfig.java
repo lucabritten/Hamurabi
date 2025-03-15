@@ -1,3 +1,5 @@
+package domainmodel;
+
 public class GameConfig {
 
     private final int initialInhabitants;
@@ -18,7 +20,7 @@ public class GameConfig {
     public GameConfig(DifficultyLevel level){
         this.level = level;
         switch(level){
-            case EASY:
+            case DifficultyLevel.EASY:
                 this.initialInhabitants = 100;
                 this.initialAcres = 1000;
                 this.initialBushels = 2800;
@@ -32,7 +34,7 @@ public class GameConfig {
                 this.rateInfestation = 10;
                 break;
 
-            case MEDIUM:
+            case DifficultyLevel.MEDIUM:
                 this.initialInhabitants = 100;
                 this.initialAcres = 900;
                 this.initialBushels = 2800;
@@ -45,7 +47,7 @@ public class GameConfig {
                 this.harvestFactor = 5.0f;
                 this.rateInfestation = 20;
                 break;
-            case HARD:
+            case DifficultyLevel.HARD:
                 this.initialInhabitants = 100;
                 this.initialAcres = 800;
                 this.initialBushels = 2800;
